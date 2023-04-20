@@ -1,3 +1,7 @@
+import myNav from "./components/myNav.js";
+
+myNav.showNav();
+
 let lista = document.querySelector("#list");
 let botones = document.querySelectorAll(".btn-header")
 let url = "https://pokeapi.co/api/v2/pokemon/";
