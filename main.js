@@ -4,20 +4,55 @@ myNav.showNav();
 
 let lista = document.querySelector("#list");
 let botones = document.querySelectorAll(".btn-header");
-let url = "https://pokeapi.co/api/v2/pokemon/";
+let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
 
-for (let i = 1; i <= 151; i++) {
+const listAPI = async() => {
+
+//Esto me da una respuesta de la api de manera asincrona
+
+  try {
+
+    //Este bloque obtiene la info de la api y la convierte en json, despues extrae los datos de los pokemon
+    
+    const response =await fetch(url)
+    const json = await response.json();
+    const data = json.results;
+
+    console.log(data);
+
+    const xddd = await fetch(data[0].url);
+    const xdd = await xddd.json();
+
+    console.log(xdd);
+
+    //Asi obtengo el url de todos los pokemons segun su indice
+
+/*     for (let index = 0; index < data.length; index++) {
+      console.log(data[index]);
+      let url2 = data[index].url;
+      console.log(url2);
+    } */
+
+  } catch(error){
+    console.log(error);
+  }
+
+  
+}
+
+listAPI();
+
+
+/* for (let i = 1; i <= 151; i++) {
     fetch(url + i)
         .then((response) => response.json())
         .then((data) => {
           localStorage.setItem("data", JSON.stringify(data))
         });
-}
+} */
 
-console.log(localStorage.getItem("data"));
+/* function showPokemon(data) {
 
-function showPokemon(data) {
-  
   let types = datos.types.map(
   (type) =>
     `<p class="${
@@ -58,7 +93,7 @@ function showPokemon(data) {
       </div>
       `;
   lista.append(div);
-  }
+} */
 
 botones.forEach((boton) =>
 boton.addEventListener("click", (e) => {
