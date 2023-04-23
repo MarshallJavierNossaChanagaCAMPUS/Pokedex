@@ -138,6 +138,9 @@ main{
     padding: 8px;
     border-radius: 100vmax;
 }
+.filter{
+    display: none;
+}
 
 /* Aquí comienzan los colores de botones según tipo */
 

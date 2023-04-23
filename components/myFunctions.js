@@ -2,6 +2,7 @@ let lista = document.querySelector("#list");
 let botones = document.querySelectorAll(".btn-header");
 let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
 let pokemon = [];
+let input = document.querySelector("#filter");
 
 export const listAPI = async () => {
 
@@ -70,3 +71,36 @@ export async function showPokemon(data) {
         lista.append(div);
     }
 };
+
+export const filter = async function searchPokemon() {
+    input.addEventListener("keyup", (e)=>{
+
+        if (e.target.matches("#filter")) {
+            document.querySelectorAll(".pokemon").forEach(pokemon=>{
+                pokemon.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                ?pokemon.classList.remove("filter")
+                :pokemon.classList.add("filter")
+            })
+        }
+    })
+};
+
+
+
+/* export const navFilter = async function () {
+    await showPokemon();
+    botones.forEach((val, id)=>val.addEventListener("click", (e) => {
+            let botonId = e.currentTarget.id;
+
+            lista.innerHTML = "";
+
+            if (botonId === "ver-todos") {
+                showPokemon()
+            } else {
+                let types = pokemon.types[0].type.name;
+                    if (types.some(tipo => tipo.includes(botonId))) {
+                        showPokemon()
+                    }
+            }
+    }))
+} */
