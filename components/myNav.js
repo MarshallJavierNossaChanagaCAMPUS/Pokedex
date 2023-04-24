@@ -55,13 +55,18 @@ export default {
             tipo: "fairy"
         },
     ],
-    showNav(){
-        let plantilla = "";
-        this.types.forEach((val, id)=>{
-            plantilla += `
-            <li class="nav-item"><button class="btn btn-header ${val.tipo}" id="${val.tipo}">${val.tipo}</button></li>
-            `
+    workerNav(){
+
+        const ws = new Worker("storage/wsMyNav.js");
+
+        ws.postMessage({module: "showNav", data: this.types});
+
+        ws.addEventListener("message", (e)=>{
+            let doc = new DOMParser().parseFromString(e.data, "text/html");
+
+            document.querySelector(".nav-list").append(...doc.body.children);
+
+            ws.terminate()
         })
-        document.querySelector(".nav-list").insertAdjacentHTML("beforeend", plantilla)
     }
 }

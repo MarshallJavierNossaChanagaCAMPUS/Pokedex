@@ -4,6 +4,9 @@ let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
 let pokemon = [];
 let input = document.querySelector("#filter");
 
+
+/* const wsListApi = new Worker("storage/wsMyfunctions"); */
+
 export const listAPI = async () => {
 
     //Esto me da una respuesta de la api de manera asincrona
@@ -39,6 +42,8 @@ export async function showPokemon(data) {
         let tipos = pokemonsito.types[0].type.name;
         let pokeId = pokemonsito.id.toString();
         let pokeName = pokemonsito.name.toUpperCase();
+
+        console.log(tipos);
 
         if (pokeId.length === 1) {
             pokeId = "00" + pokeId;
@@ -88,19 +93,14 @@ export const filter = async function searchPokemon() {
 
 
 /* export const navFilter = async function () {
-    await showPokemon();
+    await showPokemon(data);
     botones.forEach((val, id)=>val.addEventListener("click", (e) => {
             let botonId = e.currentTarget.id;
 
             lista.innerHTML = "";
 
             if (botonId === "ver-todos") {
-                showPokemon()
-            } else {
-                let types = pokemon.types[0].type.name;
-                    if (types.some(tipo => tipo.includes(botonId))) {
-                        showPokemon()
-                    }
+                showPokemon(data)
             }
     }))
 } */

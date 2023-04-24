@@ -55,6 +55,7 @@ header{
 .nav{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 1rem;
     align-items: flex-start;
     align-items: center;
@@ -141,7 +142,10 @@ main{
 .filter{
     display: none;
 }
-
+.search{
+    height: 40px;
+    width: 40%;
+}
 /* Aquí comienzan los colores de botones según tipo */
 
 .normal {
