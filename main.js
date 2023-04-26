@@ -1,5 +1,3 @@
-import { filter, showPokemon } from "./components/myFunctions.js";
-
-showPokemon();
+import { filter } from "./components/myFunctions.js";
 
 filter();

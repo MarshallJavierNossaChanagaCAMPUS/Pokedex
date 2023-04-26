@@ -1,44 +1,34 @@
-const wsMyFunctions = { 
-    listAPIWorker(){
+let pokemon;
+let plantilla;
+const wsMyFunctions = {
+    async listAPIWorker() {
         let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
-        let pokemon = [];
-        listAPI = async () => {
-            try {
-                const response = await fetch(url)
-                const json = await response.json();
-                const data = json.results;
-        
-                for (let index = 0; index < data.length; index++) {
-                    let url2 = data[index].url;
-                    const datos = await fetch(url2)
-                    const datosFinal = await datos.json()
-                    pokemon.push(datosFinal);
-                }
-            } catch (error) {
-                console.log(error);
+        pokemon = [];
+        try {
+            const response = await fetch(url)
+            const res = await response.json();
+            const data = res.results;
+
+            for (let index = 0; index < data.length; index++) {
+                let url2 = data[index].url;
+                const datos = await fetch(url2)
+                const datosFinal = await datos.json()
+                pokemon.push(datosFinal);
             }
+        } catch (error) {
+            console.log(error);
         }
+        return pokemon;
     },
-    showPokemonWorker(){
-        async function showPokemon(data) {
-    
-            for (let index = 0; index < pokemon.length; index++) {
-                let pokemonsito = await pokemon[index];
-                let tipos = pokemonsito.types[0].type.name;
-                let pokeId = pokemonsito.id.toString();
-                let pokeName = pokemonsito.name.toUpperCase();
-        
-                console.log(tipos);
-        
-                if (pokeId.length === 1) {
-                    pokeId = "00" + pokeId;
-                } else if (pokeId.length === 2) {
-                    pokeId = "0" + pokeId;
-                }
-        
-                let div = document.createElement("div");
-                div.classList.add("pokemon");
-                div.innerHTML = `
+    async showPokemonWorker() {
+        let res = await this.listAPIWorker();
+        for (let index = 0; index < res.length; index++) {
+            let pokemonsito = await res[index];
+            let tipos = pokemonsito.types[0].type.name;
+            let pokeId = pokemonsito.id.toString();
+            let pokeName = pokemonsito.name.toUpperCase();
+
+            plantilla += `
                       <div class="pokemon">
                           <p class="pokemon-id-back">#${pokeId}</p>
                           <div class="pokemon-image">
@@ -58,12 +48,11 @@ const wsMyFunctions = {
                           </div>
                       </div>
                       `;
-                lista.append(div);
-            }
-        };
+        } return plantilla;
     }
 }
 
-self.addEventListener("message", (e)=>{
-    postMessage(wsMyFunctions[`${e.data.module}`]())
+self.addEventListener("message", async (e) => {
+    let res = await wsMyFunctions[`${e.data.module}`]()
+    postMessage(res)
 })

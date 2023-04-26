@@ -6,12 +6,16 @@ let input = document.querySelector("#filter");
 
 const ws = new Worker("storage/wsMyFunctions.js");
 
-ws.postMessage({module: "listAPIWorker", module: "showPokemonWorker"});
+ws.postMessage({module: "showPokemonWorker"});
 
 let id = "#list";
 
 ws.addEventListener("message", (e)=>{
-    
+    let doc = new DOMParser().parseFromString(e.data, "text/html");
+
+    document.querySelector(id).append(...doc.body.children);
+
+    ws.terminate();
 });
 
 export const filter = async function searchPokemon() {
