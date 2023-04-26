@@ -2,7 +2,7 @@ let pokemon;
 let plantilla;
 const wsMyFunctions = {
     async listAPIWorker() {
-        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
+        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1008";
         pokemon = [];
         try {
             const response = await fetch(url)
@@ -27,6 +27,12 @@ const wsMyFunctions = {
             let tipos = pokemonsito.types[0].type.name;
             let pokeId = pokemonsito.id.toString();
             let pokeName = pokemonsito.name.toUpperCase();
+
+            if (pokeId.length === 1) {
+                pokeId = "00" + pokeId
+            } else if (pokeId.length === 2) {
+                pokeId = "0" + pokeId
+            }
 
             plantilla += `
                       <div class="pokemon">

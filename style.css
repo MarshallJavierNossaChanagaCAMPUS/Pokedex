@@ -1,56 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
-:root {
-    --clr-black: #1c1c1c;
-    --clr-gray: #ececec;
-    --clr-white: #f7f7f7;
-
-    --type-normal: #A8A878;
-    --type-fire: #F08030;
-    --type-water: #6890F0;
-    --type-grass: #78C850;
-    --type-electric: #F8D030;
-    --type-ice: #98D8D8;
-    --type-fighting: #C03028;
-    --type-poison: #A040A0;
-    --type-ground: #E0C068;
-    --type-flying: #A890F0;
-    --type-psychic: #F85888;
-    --type-bug: #A8B820;
-    --type-rock: #B8A038;
-    --type-ghost: #705898;
-    --type-dark: #705848;
-    --type-dragon: #7038F8;
-    --type-steel: #B8B8D0;
-    --type-fairy: #F0B6BC;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--clr-black);
+    color: #1c1c1c;
     font-family: 'Rubik', sans-serif;
 }
-
 ul {
     list-style-type: none;
 }
-
 button {
     background-color: transparent;
     border: 0;
     border-radius: 0;
 }
-
-/* Aquí todo el CSS extra */
-
 body{
-    background-color: var(--clr-gray);
+    background-image: url(img/bg2.png);
+    background-size: cover;
+    background-position: fixed;
 }
 header{
+    background-image: url(img/bg1.jpg);
     padding-block: 1rem;
-    box-shadow: 0 0 1rem rgb(0, 0, 0, .15);
+    box-shadow: 0 0 6rem rgb(0, 0, 0, .15);
 }
 .nav{
     display: flex;
@@ -68,7 +41,7 @@ header{
     flex-wrap: wrap;
 }
 .btn-header{
-    background-color: var(--clr-gray);
+    background-color: #ececec;
     padding: .5rem;
     border-radius: 100vmax;
     cursor: pointer;
@@ -97,7 +70,7 @@ main{
 }
 .pokemon{
     display: grid;
-    background-color: var(--clr-white);
+    background-color: #ececec;
     width: 350px;
     height: 300px;
     position: relative;
@@ -135,7 +108,7 @@ main{
     justify-content: space-between;
 }
 .stat{
-    background-color: var(--clr-gray);
+    background-color: #ececec;
     padding: 8px;
     border-radius: 100vmax;
 }
@@ -146,130 +119,111 @@ main{
     height: 40px;
     width: 40%;
 }
-/* Aquí comienzan los colores de botones según tipo */
-
 .normal {
-    background-color: var(--type-normal);
-    color: var(--clr-black);
+    background-color: #A8A878;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .fire {
-    background-color: var(--type-fire);
-    color: var(--clr-black);
+    background-color: #F08030;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .water {
-    background-color: var(--type-water);
-    color: var(--clr-white);
+    background-color: #6890F0;
+    color: #ececec;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .grass {
-    background-color: var(--type-grass);
-    color: var(--clr-black);
+    background-color: #78C850;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .electric {
-    background-color: var(--type-electric);
-    color: var(--clr-black);
+    background-color: #F8D030;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .ice {
-    background-color: var(--type-ice);
-    color: var(--clr-black);
+    background-color: #98D8D8;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .fighting {
-    background-color: var(--type-fighting);
-    color: var(--clr-white);
+    background-color: #C03028;
+    color: #ececec;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .poison {
-    background-color: var(--type-poison);
-    color: var(--clr-white);
+    background-color: #A040A0;
+    color: #ececec;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .ground {
-    background-color: var(--type-ground);
-    color: var(--clr-black);
+    background-color: #E0C068;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .flying {
-    background-color: var(--type-flying);
-    color: var(--clr-black);
+    background-color: #A890F0;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .psychic {
-    background-color: var(--type-psychic);
-    color: var(--clr-black);
+    background-color: #F85888;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .bug {
-    background-color: var(--type-bug);
-    color: var(--clr-black);
+    background-color: #A8B820;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .rock {
-    background-color: var(--type-rock);
-    color: var(--clr-black);
+    background-color: #B8A038;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .ghost {
-    background-color: var(--type-ghost);
-    color: var(--clr-white);
+    background-color: #705898;
+    color: #ececec;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .dark {
-    background-color: var(--type-dark);
-    color: var(--clr-white);
+    background-color: #705848;
+    color: #ececec;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .dragon {
-    background-color: var(--type-dragon);
-    color: var(--clr-white);
+    background-color: #7038F8;
+    color: #ececec;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .steel {
-    background-color: var(--type-steel);
-    color: var(--clr-black);
+    background-color: #B8B8D0;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
-
 .fairy {
-    background-color: var(--type-fairy);
-    color: var(--clr-black);
+    background-color: #F0B6BC;
+    color: #1c1c1c;
     border-radius: 100vmax;
     padding: 5px;
 }
