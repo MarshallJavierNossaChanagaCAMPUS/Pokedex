@@ -119,6 +119,84 @@ main{
     height: 40px;
     width: 40%;
 }
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity .6s;
+    background-color: #1c1c1cbd;
+}
+.modal_show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+}
+.modal_container{
+    width: 70%;
+    height: 450px;
+    display: flex;
+    background-color: rgb(167, 167, 167);
+    border-radius: 30px;
+}
+.modal_pokemon{
+    width: 30%;
+    background-color: #adadad;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 10px rgb(255, 102, 102);
+    border-radius: 30px 0 0 0;
+}
+.img_container{
+    display: flex;
+    justify-content: center;
+    background-image: url("img/background2.jpg");
+    border: solid 10px rgb(100, 100, 100);
+}
+.modal_info{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 10px rgb(255, 102, 102);
+    border-radius: 0 0 30px 0;
+}
+.stats{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.evolucion{
+    margin-top: 25px;
+    border: solid 10px rgb(100, 100, 100);
+}
+.modal_close{
+    width: 30px;
+    height: 30px;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color .3s;
+    margin: 15px;
+    position: fixed;
+}
+.modal_close:hover{
+    color: red;
+    background-color: white;
+}
 .normal {
     background-color: #A8A878;
     color: #1c1c1c;

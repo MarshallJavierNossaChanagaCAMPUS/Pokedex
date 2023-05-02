@@ -2,7 +2,7 @@ let pokemon;
 let plantilla;
 const wsMyFunctions = {
     async listAPIWorker() {
-        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1008";
+        let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
         pokemon = [];
         try {
             const response = await fetch(url)
@@ -35,24 +35,24 @@ const wsMyFunctions = {
             }
 
             plantilla += `
-                      <div class="pokemon">
-                          <p class="pokemon-id-back">#${pokeId}</p>
-                          <div class="pokemon-image">
-                              <img src="${pokemonsito.sprites.front_default}" height="100%" alt="${pokeName}">
-                          </div>
-                          <div class="pokemon-info">
-                              <div class="name-container">
-                                  <h2 class="pokemon-name">${pokeName}</h2>
-                              </div>
-                              <div class="pokemon-type">
-                                <p class="${tipos} tipo">${tipos.toUpperCase()}</p>
-                              </div>
-                              <div class="pokemon-stats">
-                                  <p class="stat">${pokemonsito.height}M</p>
-                                  <p class="stat">${pokemonsito.weight}Kg</p>
-                              </div>
-                          </div>
-                      </div>
+                <div class="pokemon">
+                    <p class="pokemon-id-back">#${pokeId}</p>
+                    <div class="pokemon-image">
+                        <img class="pokemon_image" src="${pokemonsito.sprites.front_default}" height="100%" alt="${pokeName}">
+                    </div>
+                    <div class="pokemon-info">
+                        <div class="name-container">
+                            <h2 class="pokemon-name">${pokeName}</h2>
+                        </div>
+                        <div class="pokemon-type">
+                        <p class="${tipos} tipo">${tipos.toUpperCase()}</p>
+                        </div>
+                        <div class="pokemon-stats">
+                            <p class="stat">${pokemonsito.height}M</p>
+                            <p class="stat">${pokemonsito.weight}Kg</p>
+                        </div>
+                    </div>
+                </div> 
                       `;
         } return plantilla;
     }
